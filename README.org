@@ -247,7 +247,7 @@ El código de las funciones se encuentra convenientemente *comentado*. *Inspecci
 
 #+begin_quote
 [!IMPORTANT]
-El lenguaje elegido es JavaScript. No se pretende que se comprenda el 100% del código si no se tiene experiencia con ese programa. Será necesario únicamente una comprensión a alto nivel.
+El lenguaje elegido es JavaScript. No se pretende que se comprenda el 100% del código si no se tiene experiencia con dicho lenguaje. Será necesaria únicamente una comprensión a alto nivel.
 #+end_quote
 
 Las funciones que vamos a desarrollar serán ejecutadas por la por la *API* que desarrollaremos en la fase 2 mediante [[https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html][integración proxy]]. Esto quiere decir que el *evento* que le llegará al manejador (/handler/) de la función tendrá un [[https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format][formato específico]]. Puedes observar que el código de las funciones hace referencia a algunas de las propiedades definidas en ese formato, como ~event.httpMethod~ o ~event.body~.
