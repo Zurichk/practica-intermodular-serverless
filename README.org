@@ -238,9 +238,8 @@ Si observas el código de una de las funciones creadas en la consola de AWS, obs
 
 Una vez creadas las funciones, puedes *editar el código* desde la consola de AWS para realizar *cambios y pruebas rápidas* (recuerda pulsar en el botón de *desplegar* al finalizar). También puedes *abrir el código de una función desde Visual Studio Code*. Eso sí, recuerda que, si haces un cambio por alguno de estos métodos, deberás posteriormente *actualizar el código de la carpeta del repositorio* para dejarlo igual.
 
-Otra opción más sencilla es *realizar cambios en el código de la carpeta del repositorio* y ejecutar el siguiente *comando* cada vez que guardes un nuevo cambio y quieras desplegarlo en Lambda para probarlo:
+Otra opción más sencilla es *realizar cambios en el código de la carpeta del repositorio* y ejecutar el siguiente *comando* cada vez que guardes un nuevo cambio y quieras desplegarlo en Lambda para probarlo (observa que ya no se incluye la opción ~--guided~, que solo se usa la primera vez):
 #+begin_src bash
-  # Observa que ya no se incluye la opción "--guided", que solo se usa la primera vez
   sam deploy
 #+end_src
 
