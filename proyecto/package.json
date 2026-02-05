@@ -1,0 +1,11 @@
+{
+  "name": "practica-intermodular-serverless",
+  "description": "Práctica intermodular serverless",
+  "version": "0.0.1",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.398.0",
+    "@aws-sdk/lib-dynamodb": "^3.398.0"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}

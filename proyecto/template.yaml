@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Práctica intermodular serverless
+Transform:
+- AWS::Serverless-2016-10-31
+
+Resources:
+  # Función Lambda para obtener las notas de un usuario
+  getNotes:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/getNotes.handler
+      Runtime: nodejs22.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 5
+      Description: Función para leer las notas de la tabla
+      Policies:
+        # Política de permisos para interactuar con la tabla de DynamoDB. Permisos CRUD.
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AppTable
+      Environment:
+        Variables:
+          # Referencia al nombre de la tabla a través de una variable de entorno
+          APP_TABLE: !Ref AppTable
+
+  # TODO: Añadir las funciones que faltan a continuación
+
+
+
+
+  # Tabla DynamoDB
+  # Observa que no vamos a utilizar el recurso AWS::Serverless::SimpleTable, porque
+  # solo deja definir clave de partición y no clave de ordenación
+  # Por tanto, incluimos un recurso AWS::DynamoDB::Table de CloudFormation
+  # Puedes comprobar por tanto que en plantillas SAM se pueden incluir también recursos
+  # de CloudFormation
+  AppTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: atributo1 # TODO: cambiar
+          AttributeType: S
+        - AttributeName: atributo2 # TODO: cambiar
+          AttributeType: S
+      KeySchema:
+        - AttributeName: atributo1 # TODO: cambiar
+          KeyType: HASH
+        - AttributeName: atributo2 # TODO: cambiar
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
