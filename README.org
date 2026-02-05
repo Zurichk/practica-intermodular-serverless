@@ -208,12 +208,12 @@ Incluye las respuestas en un fichero en tu repositorio. Por ejemplo, con el nomb
 #+end_quote
 
 ** Creación de la *base de datos*
-Crea una tabla en DynamoDB *a través de la consola de AWS*. Utiliza *capacidad a demanda* (opción por defecto) y configura la *clave primaria* elegida en el punto anterior.
+La tabla de DynamoDB será creada mediante *AWS SAM*, el servicio de *Infraestructura como Código* orientado a aplicaciones serverless en AWS.
 
-Como nombre de la tabla, utiliza ~inter-serverless-manual-TUS_INICIALES~, sustituyendo ~TUS_INICIALES~ por el valor correspondiente.
+En el fichero ~proyecto/template.yml~ puedes ver el *recurso* que se propone para crear la tabla DynamoDB. ¿Se corresponde el diseño de claves con lo que habías pensado? Observa también que la tabla utiliza el esquema de precios de pago por uso, denominado *capacidad a demanda*: así evitamos pagar por la tabla si no se realiza ninguna operación.
 
 ** Creación y despliegue de las funciones lambda del backend
-Como puedes comprobar, en el repositorio hay una carpeta denominada ~proyecto~. Dentro de ella hay una estructura de carpetas para una *aplicación SAM*, que nos permitirá realizar el *despliegue del backend* de manera sencilla, sin tener que subir el código de manera manual.
+Como has podido comprobar, en el repositorio hay una carpeta denominada ~proyecto~. Dentro de ella hay una estructura de carpetas para una *aplicación SAM*, que nos permitirá realizar el *despliegue del backend* de manera sencilla, sin tener que subir el código de manera manual.
 
 Se proporcionan *dos funciones ya creadas*. Puedes ver su código dentro de la carpeta ~handlers~. También puedes echar un vistazo a la plantilla de SAM, ~template.yml~.
 
