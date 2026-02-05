@@ -215,7 +215,7 @@ En el fichero ~proyecto/template.yml~ puedes ver el *recurso* que se propone par
 ** Creación y despliegue de las funciones lambda del backend
 Como has podido comprobar, en el repositorio hay una carpeta denominada ~proyecto~. Dentro de ella hay una estructura de carpetas para una *aplicación SAM*, que nos permitirá realizar el *despliegue del backend* de manera sencilla, sin tener que subir el código de manera manual.
 
-Se proporcionan *dos funciones ya creadas*. Puedes ver su código dentro de la carpeta ~handlers~. También puedes echar un vistazo a la plantilla de SAM, ~template.yml~.
+Se proporcionan *dos funciones ya creadas*, ~getNotes~ y ~postNotes~. Puedes ver su código dentro de la carpeta ~src/handlers~. También puedes echar un vistazo a la plantilla de SAM, ~template.yml~.
 
 Para instalar las *librerías y dependencias de la aplicación*, sitúate en la carpeta ~proyecto~ y ejecuta el siguiente comando:
 #+begin_src
@@ -282,7 +282,7 @@ El segundo, el que aparece dentro del fichero de salida, se corresponde con el *
 
 Las funciones que faltan son:
 - ~getNote~ - Devolverá una nota específica de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado.
-- ~putNote~ - Actualizará una nota específica de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado, así como los datos actualizados de la nota. Esta función es *prácticamente igual* a la función ~postNotes~ que se proporciona.
+- ~putNote~ - Actualizará una nota específica de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado, así como los datos actualizados de la nota. Esta función es *prácticamente igual* a la función ~postNotes~ que se proporciona, dado que las operaciones de creación y actualización de elementos en DynamoDB son iguales (operación ~PUT~).
 - ~deleteNote~ - Borrará una nota de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado.
 - ~processNote~ - Necesitará el ~noteId~ y el usuario autenticado. Realizará las siguientes acciones:
   1. Obtener la nota de la base de datos
