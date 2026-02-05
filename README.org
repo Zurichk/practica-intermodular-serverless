@@ -288,6 +288,29 @@ El primer código corresponde al *resultado de la ejecución de la función*. Si
 El segundo, el que aparece dentro del fichero de salida, se corresponde con el *resultado DEVUELTO por la función*. El código de la función utiliza bloques del tipo ~try...catch~, para controlar errores en tiempo de ejecución (por ejemplo, errores en la consulta a la base de datos). Si se produce alguno de esos errores, será controlado por el código y se devolverá un código de error al usuario final. En este caso, la función Lambda se habrá ejecutado correctamente, pero el proceso interno que ejecuta el programa (consulta a BD, por ejemplo) habrá generado un error.
 #+end_quote
 
+** Creación del resto de las funciones del backend
+*Crea las funciones que faltan* en el backend. Para ello, deberás:
+1. Crear el *fichero con el handler* correspondiente
+2. *Modificar la plantilla* ~template.yml~ para *añadir las funciones* que faltan
+2. *Modificar la plantilla* ~template.yml~ para *crear un bucket S3* para que sea utilizado como almacenamiento por la función ~processNote~
+
+Las funciones que faltan son:
+- ~getNote~ - Devolverá una nota específica de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado.
+- ~putNote~ - Actualizará una nota específica de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado, así como los datos actualizados de la nota. Esta función es *prácticamente igual* a la función ~postNotes~ que se proporciona.
+- ~deleteNote~ - Borrará una nota de un usuario determinado. Necesitará el ~noteId~ y el usuario autenticado.
+- ~processNote~ - Necesitará el ~noteId~ y el usuario autenticado. Realizará las siguientes acciones:
+  1. Obtener la nota de la base de datos
+  2. Enviar el texto de la nota (propiedad ~text~) al servicio *Polly* para obtener un mp3.
+  3. *Guardar* ese mp3 en un *bucket* en S3 y generar una *URL prefirmada* con una duración de *5 minutos*
+  4. Enviar el texto de la nota (propiedad ~text~) al servicio *Translate* para traducir el texto al idioma *inglés*.
+  5. *Actualizar la nota* en la base de datos para que incluya un *campo adicional* denominado ~translation~ que guarde la traducción generada en el paso anterior.
+  6. *Devolver la URL prefirmada* para que el cliente pueda descargar el mp3
+
+#+begin_quote
+[!NOTE]
+En el diagrama de arquitectura inicial puedes ver qué *métodos* de API serán utilizados para cada acción.
+#+end_quote
+
 * Fase 2
 
 * Fase 3
