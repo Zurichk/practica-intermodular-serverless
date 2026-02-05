@@ -150,6 +150,13 @@ Para realizar la entrega de la práctica, haz una *Pull Request* cuando hayas fi
 
 Por último, es posible que realicemos *cambios en el enunciado* o añadamos nuevo contenido al repositorio. Puedes comprobar si hay cambios nuevos pulsando en el botón ~Sync fork~ de tu repositorio. Acuérdate de sincronizar antes de cada fase, o si recibes indicaciones de los profesores.
 
+#+begin_quote
+[!IMPORTANT]
+*No es necesario realizar capturas* en esta práctica. Simplemente, realiza las modificaciones en los ficheros correspondientes, sube los cambios a GitHub y ha una Pull Request.
+
+*No destruyas los recursos creados en AWS*. De esta manera, podremos comprobar lo que vayas haciendo. Recuerda que son servicios *serverless*, así que no tendrán apenas coste.
+#+end_quote
+
 * Fase 1
 En esta primera fase realizaremos la implementación del *backend* de la aplicación.
 
@@ -213,8 +220,12 @@ Incluye las respuestas en un fichero en tu repositorio. Por ejemplo, con el nomb
 #+end_quote
 
 ** Creación de la *base de datos*
+Crea una tabla en DynamoDB *a través de la consola de AWS*. Utiliza *capacidad a demanda* (opción por defecto) y configura la *clave primaria* elegida en el punto anterior.
+
+Como nombre de la tabla, utiliza ~inter-serverless-manual-TUS_INICIALES~, sustituyendo ~TUS_INICIALES~ por el valor correspondiente.
 
 ** Creación de las *funciones lambda* que constituirán el backend
+Como puedes comprobar, en el repositorio hay una carpeta denominada ~proyecto~. Dentro de ella hay una estructura de carpetas para una *aplicación SAM*. Sin embargo, para empezar, *no utilizaremos SAM para el despliegue*. Haremos un *despliegue manual*, subiendo el código directamente a la consola. Más adelante realizaremos el despliegue mediante SAM.
 
 ** Testeo del backend
 
