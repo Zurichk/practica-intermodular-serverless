@@ -210,7 +210,7 @@ Incluye las respuestas en un fichero en tu repositorio. Por ejemplo, con el nomb
 ** Creación de la *base de datos*
 La tabla de DynamoDB será creada mediante *AWS SAM*, el servicio de *Infraestructura como Código* orientado a aplicaciones serverless en AWS.
 
-En el fichero ~proyecto/template.yml~ puedes ver el *recurso* que se propone para crear la tabla DynamoDB. ¿Se corresponde el diseño de claves con lo que habías pensado? Observa también que la tabla utiliza el esquema de precios de pago por uso, denominado *capacidad a demanda*: así evitamos pagar por la tabla si no se realiza ninguna operación.
+En el fichero ~proyecto/template.yml~ puedes ver el *recurso* que se propone para crear la tabla DynamoDB. *¿Se corresponde el diseño de claves con lo que habías pensado?* Observa también que la tabla utiliza el esquema de precios de pago por uso, denominado *capacidad a demanda*: así evitamos pagar por la tabla si no se realiza ninguna operación.
 
 ** Creación y despliegue de las funciones lambda del backend
 Como has podido comprobar, en el repositorio hay una carpeta denominada ~proyecto~. Dentro de ella hay una estructura de carpetas para una *aplicación SAM*, que nos permitirá realizar el *despliegue del backend* de manera sencilla, sin tener que subir el código de manera manual.
